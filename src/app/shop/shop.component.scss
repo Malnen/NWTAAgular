@@ -1,0 +1,51 @@
+.shop{
+    background-color:rgb(204, 226, 162);
+    //height: 90%;
+}
+#leftSide{
+    display: inline;
+    float: left;
+    width: 20%;
+    height:max-content;
+    background-color: darkorange;
+}
+#mainSide{
+    display: inline;
+    float: left;
+    width: 100%;
+    height:max-content;
+    background-color:rgb(47, 50, 58,0.6);
+}
+.item{
+    display: inline-block;
+    width: 23%;
+    height: 31vh;
+    margin: 1%;
+    background-color:rgb(255,174,192,0.7);
+    text-align: center;
+    
+}
+.choosenCategory{
+    height: 5vh;
+    background-color:rgb(47, 50, 58,0.7);
+    text-align: center;
+    padding-top: 10px;
+    color: #f25287;
+    font-weight: 600;
+}
+.category{
+    margin: 3%;
+    padding: 5%;
+    background-color:gray;
+    display: block;
+}
+.imageOfItem{
+    
+    height: 75%;
+    margin: 3%;
+
+    border: solid 1px black;
+}
+.class1{
+    color: aqua;
+}
