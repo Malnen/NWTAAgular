@@ -1,1 +1,21 @@
-<p>order works!</p>
+<div>
+
+    <div class="order">Koszyk</div>
+
+    <div *ngFor="let item of items" class="orderedItem">
+        <div class="idItem">{{item.idProduktu}}#</div>
+        <a [routerLink]="['/item', item.idProduktu]">
+            {{item.nazwa}}
+
+        </a>
+
+        <i class="far fa-trash-alt" id="deleteItem" (click)="deleteItem(item.numerKoszyka)"></i>
+        <input type="number" id="numberOfItems" value="{{item.iloscElementow}}">
+
+    </div>
+
+    <div style="float:right">
+        <input type="button" class="buttonX" value="Zamawiam">
+    </div>
+
+</div>

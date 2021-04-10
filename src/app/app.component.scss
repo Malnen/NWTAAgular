@@ -5,9 +5,9 @@ header{
             color: #fff;
             position: fixed;
             cursor: pointer;
-            left: 300px;
+           // left: 300px;
             font-size: 20px;
-            margin: 4px 20px;
+            margin: 3px 20px;
             transition: 0.5s;
         }
         #sidebar_btn:hover{
@@ -70,6 +70,12 @@ header{
     width: 250px;
     height: 100%;
     transition: 0.5s;
+    span{
+        font-size: 18px;
+    }
+    i{
+        font-size: 26px;
+    }
     .buttonRouter{
         display: none;
     }
@@ -100,6 +106,9 @@ header{
             padding-right: 10px;
         }
     }
+    a:active{
+        color: red;;
+    }
     a:hover{
         background: #ffaec0;
     }
@@ -122,6 +131,12 @@ header{
     font-size: 26px;
     margin-left: 165px;
     width: 80px;
+}
+
+.tooltip{
+    background: blue;
+    width: 30%;
+    height: 30%;
 }
 
 .content{
@@ -185,6 +200,23 @@ header{
         .buttonRouter:hover{
             color: #2F323A;
         }
+        .login_feature{
+            margin-bottom: 20px;
+            .profile_image{
+                margin-left: 30px;
+                width: 40px;
+                height: 40px;
+                float: left;
+            }
+            h4{
+                margin-left: 15px;
+                margin-top: 10px;
+                float: left;
+            }
+            .mobile-clear{
+                clear: both;
+            }
+        }
     }
     header{
         .right_area{
@@ -192,11 +224,48 @@ header{
         }
     }
     .sidebar{
+        #mobile-part-one{
+            a{
+                line-height: 45px;
+            }
+        }
+        #mobile-part-two{
+            padding-top: 10px;
+            a{
+                line-height: 36px;
+            }
+        }
         a{
             padding-top: -10px;
+            i{
+                font-size: 24px;
+            }
+            span{
+                padding-left: 2px;
+                font-size: 17px;
+            }
+            
+            
         }
         a:hover{
             color: #2F323A;
+        }
+    }
+}
+
+@media only screen and (max-width: 355px) {
+    header{
+        .left_area{
+            h3{
+                font-size: 18px;
+            }
+            margin-top: 5px;
+        }
+        label{
+            #sidebar_btn{
+                margin-left: -10px;
+                margin-top: 5px;
+            }
         }
     }
 }

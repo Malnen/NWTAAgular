@@ -2,6 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Category } from './category/category';
 import { Item } from './item/Item';
 import { ActivatedRoute } from '@angular/router';
+import { DataDownloaderService } from '../data-downloader.service';
 
 @Component({
   selector: 'app-shop',
@@ -15,46 +16,25 @@ export class ShopComponent implements OnInit {
   
   actualCategory: Category;
 
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute, private dataService: DataDownloaderService) {
     route.params.subscribe(val => {
       this.actualCategory = new Category();
       const routeParams = this.route.snapshot.paramMap;
       this.actualCategory.id = Number(routeParams.get('categoryId'));
 
+      this.dataService.getCategoryById(this.actualCategory.id).subscribe((data: any) => {
+        this.actualCategory.name = data.nazwa;
+      })
       this.items = [];
-      //this.actualCategory = tu select do bazy o 'this.actualCategory'
-      //this.items = tu select do bazy o rzeczy z kategorii 'this.actualCategory'
-      
-
-      this.itemsExampleData.forEach(element => {    //lista uzupełniana z listy losowych rzeczy , później po połączeniu skasować
-        if (element.categoryId == this.actualCategory.id)
-          this.items.push(element);
-      });
-
-
+      this.dataService.getItemsByCategory(this.actualCategory.id).subscribe((data: any) => {
+        this.items = data;
+      })
     });
   }
 
 
   ngOnInit(): void {
-
-    this.getExampleData();              //, później po połączeniu skasować
-
-    //this.categories = tu select do bazy o  kategorie
-
-  }                                     //zrobić wyszukiwanie i sortowanie
-
-  getExampleData(): void {              //zapelniam losowymi danymi, później po połączeniu skasować
-    for (let i = 0; i < 30; i++) {
-      let item = new Item();
-      item.name = "itemek";
-      item.id = i;
-      item.categoryId = i % 4;
-      item.price = i + 1;
-      this.itemsExampleData.push(item);
-
-    }
-  }
+  }                                    
 
 
 }

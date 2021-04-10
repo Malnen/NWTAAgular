@@ -1,0 +1,28 @@
+<div class="registerWindow">
+
+    <div class="itemCateg">LOGIN</div>
+    <input #loginInput type="text" placeholder=''>
+    <div *ngIf="registerError.login" class="error">
+        Login wymagany!
+    </div><br>
+
+    <div class="itemCateg">HASŁO</div>
+    <input #passInput type="text" placeholder=''>
+    <div *ngIf="registerError.password" class="error">
+        Hasło wymagane!
+    </div><br>
+
+    <div class="itemCateg">E-mail</div>
+    <input #mailInput type="text" placeholder=''>
+    <div *ngIf="registerError.mail" class="error">
+        Poprawny e-mail wymagany!
+    </div><br>
+
+    <div class="itemCateg">Link do awataru</div>
+    <input #avatarInput type="text" placeholder=''><br>
+    <button (click)="register()">Zarejestruj</button>
+    <div *ngIf="registerError.usrExist" class="error">
+        Takie konto już istnieje!
+    </div>
+
+</div>

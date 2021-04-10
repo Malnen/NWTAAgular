@@ -1,13 +1,13 @@
 <div class="shop">
-
     <div id="mainSide">
-        <div class="choosenCategory">{{actualCategory.id}} {{actualCategory.name}}</div>
-
-        <a [routerLink]="['/item', item.id]" *ngFor="let item of items" class="item">
+        <div class="choosenCategory">{{actualCategory.name}}</div>
+        <a [routerLink]="['/item', item.idProduktu]" *ngFor="let item of items" class="item">
             <div class="imageOfItem">
-                obrazek</div>{{item.id}} {{item.name}} -
-            {{item.price}}zł
+                <img src="{{item.zdjecieProduktu}}">
+            </div>
+            <div class="itemName">
+                {{item.nazwa}} - <span style="font-weight: 100; text-transform: capitalize;">{{item.cena}}zł</span>
+            </div>
         </a>
-
     </div>
 </div>

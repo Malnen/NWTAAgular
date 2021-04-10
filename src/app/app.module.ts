@@ -8,6 +8,10 @@ import { LoginComponent } from './login/login.component';
 import { InfoComponent } from './info/info.component';
 import { ShopComponent } from './shop/shop.component';
 import { ItemComponent } from './item/item.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
+import { RegisterComponent } from './register/register.component';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -16,13 +20,16 @@ import { ItemComponent } from './item/item.component';
     LoginComponent,
     InfoComponent,
     ShopComponent,
-    ItemComponent
+    ItemComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

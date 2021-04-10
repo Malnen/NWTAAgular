@@ -1,7 +1,8 @@
 export class Item {
-    id: number;
-    name: string;
-    price: number;
-    description: string;
+    idProduktu: number;
+    nazwa: string;
+    cena: number;
+    opis: string;
+    zdjecieProduktu: string;
     categoryId: number;
   }
