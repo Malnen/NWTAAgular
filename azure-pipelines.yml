@@ -18,4 +18,6 @@ steps:
 - script: |
     npm install
     npm run build
-  displayName: 'npm install and build'
+  displayName: 'npm install and build' 
+    ng e2e
+  displayName: 'NG e2e'
