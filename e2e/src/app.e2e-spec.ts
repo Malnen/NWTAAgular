@@ -8,9 +8,17 @@ describe('workspace-project App', () => {
     page = new AppPage();
   });
 
-  it('should display welcome message', async () => {
+
+  it('should login', async () => {
+
     await page.navigateTo();
-    expect(await page.getTitleText()).toEqual('sklep-app app is running!');
+    await page.getLoginScreenButton().click();
+    await page.getLoginInput().sendKeys("admin");
+    await page.getPasswordInput().sendKeys("admin");
+    await page.getLoginButton().click();
+    await page.sleep(3000);
+    console.log(await page.getUserName().getText());
+    expect(await page.getUserName().getText()).toEqual('admin');
   });
 
   afterEach(async () => {
