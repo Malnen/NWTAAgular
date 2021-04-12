@@ -20,6 +20,10 @@ steps:
     npm run build
   displayName: 'npm install and build' 
   
+- script: | 
+    npm install -g @angular/cli 
+  displayName: 'instal angular cli' 
+ 
 - script: |
     ng e2e
   displayName: 'run tests' 
