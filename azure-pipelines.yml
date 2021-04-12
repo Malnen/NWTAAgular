@@ -25,12 +25,6 @@ steps:
   displayName: 'instal angular cli' 
  
 - script: |
-    ng e2e
+    ng serve
   displayName: 'run tests' 
  
-
-- task: Docker@2
-  inputs:
-    repository: 'https://github.com/Malnen/NWTAspring'
-    command: 'start'
-    Dockerfile: '**/Dockerfile'
