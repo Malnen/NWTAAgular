@@ -30,3 +30,8 @@ steps:
   displayName: 'run tests' 
  
 
+- task: Docker@2
+  inputs:
+    repository: 'https://github.com/Malnen/NWTAspring'
+    command: 'start'
+    Dockerfile: '**/Dockerfile'
