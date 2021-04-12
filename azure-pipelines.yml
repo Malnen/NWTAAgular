@@ -25,6 +25,6 @@ steps:
   displayName: 'instal angular cli' 
  
 - script: |
-    ng serve
+    ng e2e
   displayName: 'run tests' 
  
