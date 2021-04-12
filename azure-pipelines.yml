@@ -18,6 +18,7 @@ steps:
 - script: |
     npm install
     npm run build
+    webdriver-manager update --versions.chrome 2.37
   displayName: 'npm install and build' 
   
 - script: | 
