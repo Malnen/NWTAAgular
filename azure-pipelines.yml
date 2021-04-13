@@ -28,9 +28,6 @@ steps:
     npx webdriver-manager clean
     npx webdriver-manager update --versions.chrome=89.0.4389.23
   displayName: 'instal webdriver manager' 
-- script: | 
-    webdriver-manager update
-  displayName: '??' 
 
 - script: |
     ng e2e
