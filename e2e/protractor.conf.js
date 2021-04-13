@@ -13,7 +13,7 @@ exports.config = {
     './src/**/*.e2e-spec.ts'
   ],
   capabilities: {
-    browserName: 'chrome',
+    browserName: 'firefox',
     args: ['--disable-gpu', '--no-sandbox','--headless', '--disable-extensions', '--disable-dev-shm-usage'],
     acceptInsecureCerts : true
   },
