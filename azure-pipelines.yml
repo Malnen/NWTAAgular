@@ -27,7 +27,7 @@ steps:
 - script: | 
     npm install -g webdriver-manager 
     webdriver-manager update
-    npm run protractor
+    npm i protractor
   displayName: 'instal webdriver manager' 
 
 - script: |
