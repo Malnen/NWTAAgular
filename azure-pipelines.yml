@@ -25,9 +25,8 @@ steps:
   displayName: 'instal angular cli' 
 
 - script: | 
-    npm install -g webdriver-manager 
-    npm i protractor
-    webdriver-manager update
+    npx webdriver-manager clean
+    npx webdriver-manager update --versions.chrome=89.0.4389.23
   displayName: 'instal webdriver manager' 
 - script: | 
     webdriver-manager update
