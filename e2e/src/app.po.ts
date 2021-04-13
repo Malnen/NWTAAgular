@@ -46,16 +46,24 @@ export class AppPage {
   navigateToOrder() {
     return browser.get('/order');
   }
-  getProducts(){
-    return element.all(by.css('body > app-root > div.content > app-order > div > div > a'));
+  getProducts() {
+    return element.all(by.css('body > app-root > div.content > app-order > div > div'));
   }
-  getProductsNameInChart(){
+  getProductsNameInChart() {
     return element(by.css('body > app-root > div.content > app-order > div > div > a'));
   }
   getChartButton(i) {
     return element(by.css('body > app-root > div.content > app-login > div > div > div:nth-child(i) > button'))
   }
 
-  
-
+  getTextOfElement(selector) {
+    return element(by.css(selector)).getText().then(function (text) {
+      return text
+    });
+  }
+  getValueOfInput(selector) {
+    return element(by.css(selector)).getAttribute('value').then(function (value) {
+      return value
+    });
+  }
 }

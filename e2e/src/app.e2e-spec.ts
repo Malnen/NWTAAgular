@@ -54,31 +54,20 @@ describe('workspace-project App', () => {
 
     var parents = await page.getProducts();
 
-    parents.find('xxx');
-  
-/*
-    await page.sleep(3000);
+ 
+    var parents = await page.getProducts();
 
+    var index = -1;
+    for (let i = 0; i < parents.length; i++) {
+      var text = await page.getTextOfElement('body > app-root > div.content > app-order > div > div:nth-child(' + (i + 2) + ') > a');
+      if (text.includes('Tetra Pleco Veggie 250ml')) {
+        index = i
+        break;
+      }
+    }
+    var value = await page.getValueOfInput('body > app-root > div.content > app-order > div > div:nth-child(' + (index + 2) + ') > input')
+    expect(value).toBe('5')
 
-    for (i=0; i < size; i++)
-      if (expect(await page.getProductsNameInChart().getText()).toEqual('Tetra Pleco Veggie 250ml'))
-        await page.getChartButton(i).click();
-    
-
-    // add specify quantity od product
-    await page.navigateToCategory1();
-    await page.openProduct();
-    await page.getAmountOfProductsInput().sendKeys("5");
-    await page.addProductToChart();
-
-    await page.navigateToOrder();
-
-    for (i=0; i < size; i++)
-      if (expect(await page.getProductsNameInChart().getText()).toEqual('Tetra Pleco Veggie 250ml'))
-        expect(await page.getCategoryText().getText()).toEqual('5');
-
-
-    */
   });
 
   /*it('should login, then add and delete product from chart', async () => {
