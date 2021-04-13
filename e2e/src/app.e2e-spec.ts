@@ -27,6 +27,7 @@ describe('workspace-project App', () => {
     await page.sleep(3000);
   });
 
+
   it('check if correct number of products were added to chart', async () => {
     let i: number;
 
@@ -94,6 +95,36 @@ describe('workspace-project App', () => {
 
 
   });*/
+
+
+  /*
+  Pomysły na testy:
+
+  it('should check if in mobile version there are more icons on the left side than in desktop version', async () => {
+
+  });
+
+  it('should check effectiveness of adding products to chart', async () => {
+    dodawanie kilkukrotne, czy liczba przedmiotów się zwiększa
+  });
+
+  it('should check uniqueness two random product descriptions', async () => {
+    
+  });
+
+  it('should register, login and check basic user activities', async () => {
+    
+  });
+
+  it('should not login', async () => {
+    
+  });
+
+  it('should check correctness of data validation during login and registration', async () => {
+    
+  });
+
+  */
 
   afterEach(async () => {
     // Assert that there are no errors emitted from the browser
