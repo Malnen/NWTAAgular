@@ -17,9 +17,9 @@ exports.config = {
     args: ['--disable-gpu', '--no-sandbox','--headless', '--disable-extensions', '--disable-dev-shm-usage'],
     acceptInsecureCerts : true
   },
-  directConnect: true,
+  //directConnect: true,
   SELENIUM_PROMISE_MANAGER: false,
-  baseUrl: 'http://localhost:4200/',
+  baseUrl: 'http://localhost:4200/wd/hub/',
   framework: 'jasmine',
   jasmineNodeOpts: {
     showColors: true,
