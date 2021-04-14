@@ -15,8 +15,10 @@ steps:
     versionSpec: '10.x'
   displayName: 'Install Node.js'
 
+
 - script: |
     npm install
+    ./node_modules/protractor/bin/webdriver-manager update --versions.chrome 2.35
     npm run build
   displayName: 'npm install and build' 
   
@@ -27,7 +29,6 @@ steps:
 - script: | 
     npx webdriver-manager clean
     npx webdriver-manager update --versions.chrome=89.0.4389.23
-    $ ./node_modules/protractor/bin/webdriver-manager update
   displayName: 'instal webdriver manager' 
 
 - script: |
