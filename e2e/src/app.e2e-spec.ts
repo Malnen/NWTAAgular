@@ -102,6 +102,7 @@ describe('workspace-project App', () => {
 
     // 
     await page.navigateToOrder();
+    await page.sleep(3000);
 
     var parents = await page.getProducts();
 
@@ -110,13 +111,24 @@ describe('workspace-project App', () => {
       var text = await page.getTextOfElement('body > app-root > div.content > app-order > div > div:nth-child(' + (i + 2) + ') > a');
       if (text.includes('Skalar')) {
         index = i
+        console.log(text)
         break;
       }
     }
 
-    await page.removeItem(index+2).click();
+    await page.removeItem(index+2).click(); 
     await page.sleep(3000);
 
+    //check if cart contains deleted item   
+    var contains = false;
+   for (let i = 0; i < parents.length; i++) {
+      var text = await page.getTextOfElement('body > app-root > div.content > app-order > div > div:nth-child(' + (i + 2) + ') > a');
+      if (text.includes('Skalar')) {
+        contains = true;
+        break;
+      }
+    }
+    expect(contains).toBeFalse()
   }); 
 
   it('should check if in mobile version there are more icons on the left side than in desktop version', async () => {
