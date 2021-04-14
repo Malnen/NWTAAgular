@@ -27,7 +27,7 @@ steps:
 - script: | 
     npx webdriver-manager clean
     npx webdriver-manager update --versions.chrome=89.0.4389.23
-    npm run webdriver-update
+    $ ./node_modules/protractor/bin/webdriver-manager update
   displayName: 'instal webdriver manager' 
 
 - script: |
