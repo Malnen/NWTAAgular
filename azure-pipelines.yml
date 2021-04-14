@@ -27,10 +27,9 @@ steps:
 - script: | 
     npx webdriver-manager clean
     npx webdriver-manager update --versions.chrome=89.0.4389.23
-    npm install chromedriver
   displayName: 'instal webdriver manager' 
 
 - script: |
-    ng e2e 
+    ng e2e --webdriver-update=false
   displayName: 'run tests' 
  
