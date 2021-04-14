@@ -112,11 +112,11 @@ describe('workspace-project App', () => {
       if (text.includes('Skalar')) {
         index = i
         console.log(text)
+        await page.removeItem(index+2).click(); 
         break;
       }
     }
 
-    await page.removeItem(index+2).click(); 
     await page.sleep(3000);
 
     //check if cart contains deleted item   
