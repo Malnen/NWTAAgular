@@ -31,5 +31,7 @@ steps:
 
 - script: |
     ng e2e --webdriver-update=false
+    webdriver-manager update
+    ng e2e --webdriver-update=false
   displayName: 'run tests' 
  
