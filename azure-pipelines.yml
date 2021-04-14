@@ -31,6 +31,6 @@ steps:
   displayName: 'instal webdriver manager' 
 
 - script: |
-    ng e2e --webdriverUpdate=false
+    ng e2e 
   displayName: 'run tests' 
  
