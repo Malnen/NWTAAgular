@@ -27,6 +27,7 @@ steps:
   displayName: 'instal angular cli' 
 
 - script: | 
+    npx webdriver-manager update 
   displayName: 'instal webdriver manager' 
 
 - script: |
