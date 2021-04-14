@@ -8,7 +8,6 @@ describe('workspace-project App', () => {
     page = new AppPage();
   });
 
-
   it('should login', async () => {
 
     await page.navigateTo();
@@ -47,14 +46,11 @@ describe('workspace-project App', () => {
     await page.sleep(3000);
 
 
-    // remove old addition from chart
+    // 
     await page.navigateToOrder();
 
     await page.sleep(3000);
 
-    var parents = await page.getProducts();
-
- 
     var parents = await page.getProducts();
 
     var index = -1;
@@ -65,12 +61,37 @@ describe('workspace-project App', () => {
         break;
       }
     }
+
     var value = await page.getValueOfInput('body > app-root > div.content > app-order > div > div:nth-child(' + (index + 2) + ') > input')
     expect(value).toBe('5')
 
   });
 
-  /*it('should login, then add and delete product from chart', async () => {
+  it('should not login', async () => {
+    // login out
+    await page.navigateTo();
+    await page.getLoginScreenButton().click();
+
+    // login
+    await page.navigateTo();
+    await page.getLoginScreenButton().click();
+    await page.getLoginInput().sendKeys("1");
+    await page.getPasswordInput().sendKeys("1");
+    await page.getLoginButton().click();
+
+    expect(await page.getErrorMessage().getText()).toEqual("Niepoprawne dane");
+
+    await page.sleep(3000);
+
+  });
+
+  it('should login, then add and delete product from chart', async () => {
+    // login out
+    await page.navigateTo();
+    await page.getLoginScreenButton().click();
+
+
+    // login
     await page.navigateTo();
     await page.getLoginScreenButton().click();
     await page.getLoginInput().sendKeys("admin");
@@ -79,19 +100,47 @@ describe('workspace-project App', () => {
 
     await page.sleep(3000);
 
-    await page.navigateToCategory1();
-    await page.openProduct();
+    // 
+    await page.navigateToOrder();
 
+    var parents = await page.getProducts();
 
-  });*/
+    var index = -1;
+    for (let i = 0; i < parents.length; i++) {
+      var text = await page.getTextOfElement('body > app-root > div.content > app-order > div > div:nth-child(' + (i + 2) + ') > a');
+      if (text.includes('Skalar')) {
+        index = i
+        break;
+      }
+    }
+
+    await page.removeItem(index+2).click();
+    await page.sleep(3000);
+
+  }); 
+
+  it('should check if in mobile version there are more icons on the left side than in desktop version', async () => {
+    var size = browser.driver.manage().window().getSize();
+    
+
+    // mobile
+    browser.driver.manage().window().setSize(400, 700);
+
+    var mobile = (await (await page.getMobileOptions1()).length) + (await page.getMobileOptions2()).length;
+    
+    // desktop
+    browser.driver.manage().window().setSize((await size).width,(await size).height);
+
+    var desktop =  (await page.getMobileOptions2()).length;
+
+    expect(mobile != desktop);
+  });
 
 
   /*
   Pomysły na testy:
 
-  it('should check if in mobile version there are more icons on the left side than in desktop version', async () => {
 
-  });
 
   it('should check effectiveness of adding products to chart', async () => {
     dodawanie kilkukrotne, czy liczba przedmiotów się zwiększa
@@ -105,9 +154,7 @@ describe('workspace-project App', () => {
     
   });
 
-  it('should not login', async () => {
-    
-  });
+
 
   it('should check correctness of data validation during login and registration', async () => {
     

@@ -66,4 +66,23 @@ export class AppPage {
       return value
     });
   }
+  removeItem(i){
+    return element(by.css('body > app-root > div.content > app-order > div > div:nth-child(i) > i'));
+  }
+  getLoginMenuTextMobile(){
+    return element(by.css('body > app-root > div.sidebar > #mobile-part-one > a.buttonRouter.active > span'));
+  }
+  getLoginMenuText(){
+    return element(by.css('body > app-root > header > div.right_area > a:nth-child(1)'));
+  }
+  getErrorMessage(){
+    return element(by.css('body > app-root > div.content > app-login > div > div > div:nth-child(5) > div'));
+  }
+
+  getMobileOptions1() {
+    return element.all(by.css('body > app-root > div.sidebar > #mobile-part-one > a'));
+  }
+  getMobileOptions2() {
+    return element.all(by.css('body > app-root > div.sidebar > #mobile-part-two > a'));
+  }
 }
