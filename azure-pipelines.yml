@@ -22,11 +22,11 @@ steps:
   
 - script: | 
     npm install -g @angular/cli 
-  displayName: 'instal angular cli' 
+  displayName: 'install angular cli' 
 
 - script: | 
     npx webdriver-manager update 
-  displayName: 'instal webdriver manager' 
+  displayName: 'install webdriver manager' 
 
 - script: |
     ng e2e --webdriver-update=false
