@@ -18,8 +18,6 @@ steps:
 
 - script: |
     npm install
-    ./node_modules/protractor/bin/webdriver-manager update --versions.chrome 2.35
-    npm run build
   displayName: 'npm install and build' 
   
 - script: | 
