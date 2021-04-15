@@ -96,7 +96,7 @@ export class RegisterComponent implements OnInit {
   validateUser(user: any): boolean {
     let pass = true;
 
-    let mailRegex = new RegExp('[a-z]+[@][a-z]+[.][a-z]+');
+    let mailRegex = new RegExp('[a-z0-9]+[@][a-z]+[.][a-z]+');
 
     if (user.login == "") {
       pass = false;
