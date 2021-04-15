@@ -14,7 +14,7 @@ stages:
           inputs:
             versionSpec: '10.x'
           displayName: 'Install Node.js'
-          
+
         - script: |
             npm install
           displayName: 'npm install and build' 
@@ -30,5 +30,16 @@ stages:
         - script: |
             ng e2e --webdriver-update=false
           displayName: 'run tests' 
+      
+      - job: Backend
+        steps:
+        - task: Docker@2
+          inputs:
+            command: build
+            repository: $(imageRepository)
+            dockerfile: $(dockerfilePath)
+            containerRegistry: $(dockerRegistryServiceConnection)
+          displayName: 'build docker'
+          
 
  
