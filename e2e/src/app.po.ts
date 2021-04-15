@@ -85,4 +85,38 @@ export class AppPage {
   getMobileOptions2() {
     return element.all(by.css('body > app-root > div.sidebar > #mobile-part-two > a'));
   }
+
+  navigateToItem1() {
+    return browser.get('/item/0');
+  }
+  navigateToItem2() {
+    return browser.get('/item/1');
+  }
+  getDescription(){
+    return element(by.css('body > app-root > div.content > app-item > div.item > div.description > span'));
+  }
+
+  navigateToRegister(){
+    return browser.get('/register');
+  }
+
+  getLoginInputInRegistration() {
+    return element(by.css('body > app-root > div.content > app-register > div > input[type=text]:nth-child(2)'))
+  }
+  getPassInputInRegistration() {
+    return element(by.css('body > app-root > div.content > app-register > div > input[type=password]:nth-child(5)'))
+  }
+  getMailInputInRegistration() {
+    return element(by.css('body > app-root > div.content > app-register > div > input[type=text]:nth-child(8)'))
+  }
+  getRegisterButton() {
+    return element(by.css('body > app-root > div.content > app-register > div > button'))
+  }
+  getErrorEmailRegistration() {
+    return element(by.css('body > app-root > div.content > app-register > div > div.error'))
+  }
+
+  addToChart(){
+    return element(by.css('body > app-root > div.content > app-item > div.item-mobile > div.buy > input[type=button]:nth-child(3)'));
+  } 
 }

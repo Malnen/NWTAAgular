@@ -8,15 +8,112 @@ describe('workspace-project App', () => {
     page = new AppPage();
   });
 
-  it('should login', async () => {
+  it('should check correctness of data validation for email during registration - domain without dot', async () => {
+    await page.navigateToRegister();
+    await page.getLoginInputInRegistration().sendKeys("user123");
+    await page.getPassInputInRegistration().sendKeys("user123");
+    await page.getMailInputInRegistration().sendKeys("aaaa@aaa");
+    await page.getRegisterButton().click();
+    await page.sleep(3000);
+    expect(await page.getErrorEmailRegistration().getText()).toEqual("Poprawny e-mail wymagany!");
+  });
+  it('should check correctness of data validation for email during registration - dot after at sign', async () => {
+    await page.navigateToRegister();
+    await page.getLoginInputInRegistration().sendKeys("user123");
+    await page.getPassInputInRegistration().sendKeys("user123");
+    await page.getMailInputInRegistration().sendKeys("bbb@.bb");
+    await page.getRegisterButton().click();
+    await page.sleep(3000);
+    expect(await page.getErrorEmailRegistration().getText()).toEqual("Poprawny e-mail wymagany!");
+  });
+  it('should check correctness of data validation for email during registration - without at email sign', async () => {
+    await page.navigateToRegister();
+    await page.getLoginInputInRegistration().sendKeys("user123");
+    await page.getPassInputInRegistration().sendKeys("user123");
+    await page.getMailInputInRegistration().sendKeys("ccc.ccc");
+    await page.getRegisterButton().click();
+    await page.sleep(3000);
+    expect(await page.getErrorEmailRegistration().getText()).toEqual("Poprawny e-mail wymagany!");
+  });
+  it('should check correctness of data validation for email during registration - checking uniqueness of the account', async () => {
+    await page.navigateToRegister();
+    await page.getLoginInputInRegistration().sendKeys("admin");
+    await page.getPassInputInRegistration().sendKeys("admin");
+    await page.getMailInputInRegistration().sendKeys("admin@admin.pl");
+    await page.getRegisterButton().click();
+    await page.sleep(3000);
+    expect(await page.getErrorEmailRegistration().getText()).toEqual("Takie konto już istnieje!");
+  });
+  it('should check empty boxes in registration form - for login', async () => {
+    await page.navigateToRegister();
+    await page.getLoginInputInRegistration().sendKeys("");
+    await page.getPassInputInRegistration().sendKeys("123456789");
+    await page.getMailInputInRegistration().sendKeys("admin@admin.pl");
+    await page.getRegisterButton().click();
+    await page.sleep(3000);
+    expect(await page.getErrorEmailRegistration().getText()).toEqual("Login wymagany!");
+  });
+  it('should check empty boxes in registration form - for password', async () => {
+    await page.navigateToRegister();
+    await page.getLoginInputInRegistration().sendKeys("qwertyuiop123456789");
+    await page.getPassInputInRegistration().sendKeys("");
+    await page.getMailInputInRegistration().sendKeys("admin@admin.pl");
+    await page.getRegisterButton().click();
+    await page.sleep(3000);
+    expect(await page.getErrorEmailRegistration().getText()).toEqual("Hasło wymagane!");
+  });
+  it('should check empty boxes in registration form - for e-mail', async () => {
+    await page.navigateToRegister();
+    await page.getLoginInputInRegistration().sendKeys("qwertyuiop123456789");
+    await page.getPassInputInRegistration().sendKeys("123456789");
+    await page.getMailInputInRegistration().sendKeys("");
+    await page.getRegisterButton().click();
+    await page.sleep(3000);
+    expect(await page.getErrorEmailRegistration().getText()).toEqual("Poprawny e-mail wymagany!");
+  });
 
+  it('should display error message about incorrect password in login form', async () => {
+        // login out
+    await page.navigateTo();
+    await page.getLoginScreenButton().click();
+
+    // login
+    await page.navigateTo();
+    await page.getLoginScreenButton().click();
+    await page.getLoginInput().sendKeys("admin");
+    await page.getPasswordInput().sendKeys("1234");
+    await page.getLoginButton().click();
+
+    expect(await page.getErrorMessage().getText()).toEqual("Niepoprawne dane");
+
+    await page.sleep(3000);
+  });
+
+  it('should not login', async () => {
+    // login out
+    await page.navigateTo();
+    await page.getLoginScreenButton().click();
+
+    // login
+    await page.navigateTo();
+    await page.getLoginScreenButton().click();
+    await page.getLoginInput().sendKeys("1");
+    await page.getPasswordInput().sendKeys("1");
+    await page.getLoginButton().click();
+
+    expect(await page.getErrorMessage().getText()).toEqual("Niepoprawne dane");
+
+    await page.sleep(3000);
+  });
+  
+  it('should login', async () => {
     await page.navigateTo();
     await page.getLoginScreenButton().click();
     await page.getLoginInput().sendKeys("admin");
     await page.getPasswordInput().sendKeys("admin");
     await page.getLoginButton().click();
     await page.sleep(3000);
-    console.log(await page.getUserName().getText());
+    //console.log(await page.getUserName().getText());
     expect(await page.getUserName().getText()).toEqual('admin');
   });
 
@@ -26,15 +123,10 @@ describe('workspace-project App', () => {
     await page.sleep(3000);
   });
 
-
   it('check if correct number of products were added to chart', async () => {
-    let i: number;
-
-
     // login out
     await page.navigateTo();
     await page.getLoginScreenButton().click();
-
 
     // login
     await page.navigateTo();
@@ -44,7 +136,6 @@ describe('workspace-project App', () => {
     await page.getLoginButton().click();
 
     await page.sleep(3000);
-
 
     // 
     await page.navigateToOrder();
@@ -67,21 +158,40 @@ describe('workspace-project App', () => {
 
   });
 
-  it('should not login', async () => {
-    // login out
-    await page.navigateTo();
-    await page.getLoginScreenButton().click();
+  it('should check uniqueness two random product descriptions', async () => {
+    await page.navigateToItem1();
+    var desc1 = await page.getDescription().getText();
 
-    // login
-    await page.navigateTo();
-    await page.getLoginScreenButton().click();
-    await page.getLoginInput().sendKeys("1");
-    await page.getPasswordInput().sendKeys("1");
-    await page.getLoginButton().click();
+    await page.navigateToItem2();
+    var desc2 = await page.getDescription().getText();
 
-    expect(await page.getErrorMessage().getText()).toEqual("Niepoprawne dane");
+    expect(desc1 != desc2);
+  });
 
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+
+  it('should register, login and check basic user activities', async () => {
+    var date = Date.now();
+    var login = "user".concat(date.toString());
+    var password = "pass123pass";
+    var email = login.concat("@domain.eu");
+
+    await page.navigateToRegister();
+    await page.getLoginInputInRegistration().sendKeys(login);
+    await page.getPassInputInRegistration().sendKeys(password);
+    await page.getMailInputInRegistration().sendKeys(email);
+    await page.getRegisterButton().click();
     await page.sleep(3000);
+
+    await page.navigateToItem1();
+    await page.addToChart().click();
+
+    await page.navigateToOrder();
+    var parents = await page.getProducts();
+
+    expect(parents.length > 0);
 
   });
 
@@ -158,19 +268,13 @@ describe('workspace-project App', () => {
     dodawanie kilkukrotne, czy liczba przedmiotów się zwiększa
   });
 
-  it('should check uniqueness two random product descriptions', async () => {
-    
-  });
-
-  it('should register, login and check basic user activities', async () => {
-    
-  });
 
 
 
-  it('should check correctness of data validation during login and registration', async () => {
-    
-  });
+
+
+
+
 
   */
 
