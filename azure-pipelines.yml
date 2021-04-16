@@ -1,27 +1,4 @@
-
-trigger:
-- master
-
-pool:
-  vmImage: windows-latest
-
-stages:
-  - stage: Build
-    jobs:
-      - job: Frontend
-        steps:
-        - task: NodeTool@0
-          inputs:
-            versionSpec: '10.x'
-          displayName: 'Install Node.js'
-
-        - script: |
-            npm install
-          displayName: 'npm install and build' 
-          
-        - script: | 
-            npm install -g @angular/cli 
-          displayName: 'install angular cli' # Node.js
+# Node.js
 # Build a general Node.js project with npm.
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
@@ -55,25 +32,4 @@ steps:
     ng e2e --webdriver-update=false
   displayName: 'run tests' 
  
-
-
-        - script: | 
-            npx webdriver-manager update 
-          displayName: 'install webdriver manager' 
-
-        - script: |
-            ng e2e --webdriver-update=false
-          displayName: 'run tests' 
-      
-      - job: Backend
-        steps:
-        - task: Docker@2
-          inputs:
-            command: build
-            repository: $(imageRepository)
-            dockerfile: $(dockerfilePath)
-            containerRegistry: $(dockerRegistryServiceConnection)
-          displayName: 'build docker'
-          
-
  
