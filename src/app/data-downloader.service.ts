@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class DataDownloaderService {
-  private url = "https://localhost:8443"; //lokalnie, później się zmieni na bazę
+  private url = "https://nwta.azurewebsites.net"; //na azure
 
   data = [];
 
