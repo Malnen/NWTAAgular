@@ -171,7 +171,7 @@ describe('workspace-project App', () => {
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////
-
+/*
   it('should register, login and check basic user activities', async () => {
     var date = Date.now();
     var login = "user".concat(date.toString());
@@ -257,7 +257,7 @@ describe('workspace-project App', () => {
 
     expect(mobile != desktop);
   });
-
+*/
 
   /*
   Pomysły na testy:
