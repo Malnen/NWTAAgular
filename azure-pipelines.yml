@@ -6,7 +6,8 @@
 trigger:
 - master
 
-pool: nwta
+pool:
+  vmImage: windows-latest
 
 steps:
 - task: NodeTool@0
