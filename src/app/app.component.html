@@ -41,9 +41,9 @@
       <i class="fas fa-shopping-basket"></i>
       <span>Koszyk</span>
     </a>
-    <a routerLink="/login" routerLinkActive="active" class="buttonRouter">
+    <a (click)="loginLogout()" routerLinkActive="active" class="buttonRouter">
       <i class="fas fa-sign-in-alt"></i>
-      <span>Zaloguj</span>
+      <span [innerHTML]="loginButtonText"></span>
     </a>    
   </div>
 

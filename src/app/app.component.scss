@@ -53,6 +53,7 @@ header{
             font-weight: 600px;
             color: #fff;
             transition: 0.5s;
+            cursor: pointer;
         }
         .buttonRouter:hover{
             background: #ffaec0;
@@ -72,6 +73,7 @@ header{
     transition: 0.5s;
     span{
         font-size: 18px;
+        cursor: pointer;
     }
     i{
         font-size: 26px;
