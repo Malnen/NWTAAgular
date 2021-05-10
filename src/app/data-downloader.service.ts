@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class DataDownloaderService {
+
   private url = "https://nwta.azurewebsites.net"; //na azure
 
   data = [];
@@ -54,6 +55,8 @@ export class DataDownloaderService {
 
     return this.http.delete(this.url + "/kartaProduktow/"+ id);
   }
-
+  deleteOrder(orderId) {
+    return this.http.delete(this.url + "/kartaProduktow/aaaa/"+ orderId);  //tu trzeba będzie zmienić url
+  }
   
 }

@@ -12,6 +12,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { RegisterComponent } from './register/register.component';
 import { DatePipe } from '@angular/common';
+import { SummaryComponent } from './summary/summary.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,13 +23,15 @@ import { DatePipe } from '@angular/common';
     InfoComponent,
     ShopComponent,
     ItemComponent,
-    RegisterComponent
+    RegisterComponent,
+    SummaryComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

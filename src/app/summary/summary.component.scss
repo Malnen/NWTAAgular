@@ -1,0 +1,58 @@
+table{
+    width: 100%;
+    padding: 2%;   
+}
+td{
+    padding: 1%;
+}
+.total{
+    background-color: #f25287;
+}
+.personalDataText{
+    margin: 5% 5%;
+    border:black solid;
+    border-width: 1px 0px;
+    padding: 1%;
+}
+.personalData{
+    width: 50%;
+    display: inline-block;
+    text-align: center;
+    *{
+        margin: 1%;
+    }
+    .personalDataText{
+        margin: 5% 3%;
+        border:black solid;
+        border-width: 1px 0px;
+        padding: 1%;
+    }
+    tr{
+        width: 80%;
+    }
+}
+.shippingMethod{
+    float:right;
+    width: 50%;
+    text-align: center;
+    *{
+        margin: 1%;
+    }
+    .shippingMethodText{
+        margin: 5% 3%;
+        border:black solid;
+        border-width: 1px 0px;
+        padding: 1%;
+    }
+
+}
+.buttonOrder{
+    background-color: rgba(0, 0, 0, 0.7);
+    margin-top: 5px;
+    padding: 10px;
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: 2px;
+    transition: 0.5s;
+    width: 10vw;
+}

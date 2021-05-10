@@ -1,0 +1,59 @@
+<table>
+    <tr>
+        <td>Nazwa</td>
+        <td>Cena</td>
+        <td>Ilość</td>
+        <td>Cena łącznie</td>
+    </tr>
+    <tr *ngFor="let item of items">
+        <td>{{item.nazwa}}</td>
+        <td>{{item.cena}}zł</td>
+        <td>{{item.iloscElementow}}</td>
+        <td>{{item.cenaLacznie}}zł</td>
+    </tr>
+    <tr class="total">
+        <td colspan="3">Łącznie</td>
+        <td>{{totalToPaid}}zł</td>
+    </tr>
+</table>
+
+<div *ngIf="ordered == false else orderedInfo">
+    <div class="personalData">
+        <div class="personalDataText">
+            Dane osobowe
+        </div>
+        <tr><td>Imię: </td><td><input type="text" #firstNameInput></td></tr>
+        <tr><td>Nazwisko: </td><td><input type="text" #lastNameInput></td></tr>
+        <tr><td>Kraj: </td><td><input type="text" #countryInput></td></tr>
+        <tr><td>Miasto: </td><td><input type="text" #cityInput></td></tr>
+        <tr><td>Ulica i numer domu/mieszkania: </td><td><input type="text" #adressInput></td></tr>
+        <tr><td>Numer telefonu: </td><td><input type="text" #phoneInput></td></tr>
+        <tr><td>Nip: </td><td><input type="text" #nipInput></td></tr>
+    </div>
+    <div class="shippingMethod">
+        <div class="shippingMethodText">
+            Sposób wysyłki
+        </div>
+        <label>
+            <input type="radio" name="shipping" value="poczta" [(ngModel)]="shipping">
+            Poczta Polska - 20zł
+        </label>
+        <br>
+        <label>
+            <input type="radio" name="shipping" value="gls" [(ngModel)]="shipping">
+            GLS - 15zł
+        </label>      
+        <br>
+        <label>
+            <input type="radio" name="shipping" value="dpd" [(ngModel)]="shipping">
+            DPD - 18zł
+        </label>
+
+    </div>
+    <div *ngIf="everythingOk == false" style="color:red">Wprowadź poprawnie dane</div>
+    <input type="button" class="buttonOrder" (click)="validate()" value="Zamawiam">
+</div>
+<ng-template #orderedInfo>
+    Dziękujemy {{user.name}} za zamówienie!
+    <button (click)="generatePDF()">Pobierz fakturę</button>
+</ng-template>
