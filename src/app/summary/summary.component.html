@@ -1,9 +1,9 @@
 <table>
     <tr>
-        <td>Nazwa</td>
-        <td>Cena</td>
-        <td>Ilość</td>
-        <td>Cena łącznie</td>
+        <td class="trtd">Nazwa</td>
+        <td class="trtd">Cena</td>
+        <td class="trtd">Ilość</td>
+        <td class="trtd">Cena łącznie</td>
     </tr>
     <tr *ngFor="let item of items">
         <td>{{item.nazwa}}</td>
@@ -26,7 +26,7 @@
         <tr><td>Nazwisko: </td><td><input type="text" #lastNameInput></td></tr>
         <tr><td>Kraj: </td><td><input type="text" #countryInput></td></tr>
         <tr><td>Miasto: </td><td><input type="text" #cityInput></td></tr>
-        <tr><td>Ulica i numer domu/mieszkania: </td><td><input type="text" #adressInput></td></tr>
+        <tr><td>Ulica i numer domu / mieszkania: </td><td><input type="text" #adressInput></td></tr>
         <tr><td>Numer telefonu: </td><td><input type="text" #phoneInput></td></tr>
         <tr><td>Nip: </td><td><input type="text" #nipInput></td></tr>
     </div>
@@ -48,10 +48,15 @@
             <input type="radio" name="shipping" value="dpd" [(ngModel)]="shipping">
             DPD - 18zł
         </label>
-
     </div>
-    <div *ngIf="everythingOk == false" style="color:red">Wprowadź poprawnie dane</div>
-    <input type="button" class="buttonOrder" (click)="validate()" value="Zamawiam">
+    <div>
+        <input type="button" class="buttonOrder" (click)="validate()" value="Zamawiam">
+        <div *ngIf="everythingOk == false" class="error">Wprowadź poprawnie dane</div>
+        <div style = "clear: both;"></div>
+    </div>
+
+    <div style = "clear: both;"></div>
+    
 </div>
 <ng-template #orderedInfo>
     Dziękujemy {{user.name}} za zamówienie!

@@ -1,58 +1,122 @@
 table{
     width: 100%;
-    padding: 2%;   
+    padding: 2%;  
+    background-color: rgba(0, 0, 0, 0.8); 
+    color: white;
+    opacity: 0.9;
+}
+.trtd {
+    font-weight: bold; 
+    text-transform: uppercase;
 }
 td{
-    padding: 1%;
+    padding: 1vh;
 }
 .total{
     background-color: #f25287;
 }
-.personalDataText{
-    margin: 5% 5%;
-    border:black solid;
-    border-width: 1px 0px;
-    padding: 1%;
-}
 .personalData{
-    width: 50%;
-    display: inline-block;
-    text-align: center;
-    *{
-        margin: 1%;
-    }
+    width: 45%;
+    float: left;
+    margin-left: 1.5vw;
+    margin-top: 2vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: rgba(255, 255, 255, 0.87);
+    padding: 10px;
+    font-size: 2vw;
     .personalDataText{
-        margin: 5% 3%;
+        border-width: 1px 0px;
         border:black solid;
         border-width: 1px 0px;
-        padding: 1%;
+        padding: 10px;
+        font-weight: bold;
+        text-transform: uppercase;
+        background-color: rgba(0, 0, 0, 0.5);
     }
-    tr{
-        width: 80%;
+    input{
+        height: 3vh;
+        width: 15vw;
+        background-color: rgba(255, 255, 255, 0.8);
     }
+}
+input{
+    transition: 1.5s;
 }
 .shippingMethod{
-    float:right;
-    width: 50%;
-    text-align: center;
-    *{
-        margin: 1%;
-    }
+    font-size: 2vw;
+    width: 43%;
+    float: left;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: rgba(255, 255, 255, 0.87);
+    margin-left: 1.5vw;
+    margin-top: 2vh;
+    padding: 10px;
     .shippingMethodText{
-        margin: 5% 3%;
         border:black solid;
         border-width: 1px 0px;
-        padding: 1%;
+        padding: 10px;
+        background-color: rgba(0, 0, 0, 0.8); 
+        color: white;
+        opacity: 0.9;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        font-weight: bold;
     }
 
 }
 .buttonOrder{
     background-color: rgba(0, 0, 0, 0.7);
-    margin-top: 5px;
+    margin-left: 1.5vw;
+    margin-top: 2vh;
     padding: 10px;
     color: #fff;
     font-weight: 600;
     letter-spacing: 2px;
     transition: 0.5s;
-    width: 10vw;
+    float: left;
+}
+
+.error{
+    color: red;
+    font-weight: bold;
+    float: left;
+    margin-top: 2vh;
+    margin-left: 1.5vw;
+}
+
+@media only screen and (max-width: 930px) {
+    .personalData{
+        input{
+            width: 10vw;
+        }
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .personalData{
+        input{
+            width: 7vw;
+        }
+    }
+    .shippingMethod{
+        width: 35%;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .personalData{
+        font-size: 2.3vw;
+    }
+    .shippingMethod{
+        font-size: 2.3vw;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .personalData{
+        font-size: 3.5vw;
+    }
+    .shippingMethod{
+        font-size: 3vw;
+    }
 }
