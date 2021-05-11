@@ -160,6 +160,10 @@ header{
     display: none;
 }
 
+.content2{
+    display: none;
+}
+
 @media only screen and (max-width: 815px) {
     header{
         .right_area{
@@ -252,6 +256,22 @@ header{
         a:hover{
             color: #2F323A;
         }
+    }
+}
+@media only screen and (max-width: 400px) {
+    #check:not(:checked) ~ .content{
+        display: none;
+    }
+    #check:not(:checked) ~ .content2{
+        display: block;
+        margin-left: 250px;
+        background-image: url("../app/images/background1.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        height: 100vh;
+        transition: 0.5s;
+        padding-top: 70px;
     }
 }
 
