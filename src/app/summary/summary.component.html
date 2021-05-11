@@ -59,6 +59,8 @@
     
 </div>
 <ng-template #orderedInfo>
-    Dziękujemy {{user.name}} za zamówienie!
-    <button (click)="generatePDF()">Pobierz fakturę</button>
+    <div class="orderSummary">
+        Dziękujemy <span>{{user.name}}</span>  za zamówienie!
+    </div>
+    <button (click)="generatePDF()" class = "downloadButton">Pobierz fakturę</button>
 </ng-template>
