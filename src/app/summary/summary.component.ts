@@ -44,8 +44,12 @@ export class SummaryComponent implements OnInit {
   constructor(private dataService: DataDownloaderService, private router: Router) {
     let user = JSON.parse(sessionStorage.getItem("loggedUser"));
     this.user.name = user.login;
-    if (user != null) {
+    this.user.orderId = user.orderId;
 
+
+    
+    if (user != null) {
+      
       this.dataService.getOrderById(user.orderId).subscribe((data: any) => {
 
         data.forEach(element => {
@@ -90,6 +94,7 @@ export class SummaryComponent implements OnInit {
     else
       this.everythingOk = true;
 
+      
     if (this.everythingOk)
       this.order();
   }
