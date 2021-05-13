@@ -50,7 +50,7 @@
         </label>
     </div>
     <div>
-        <input type="button" class="buttonOrder" (click)="validate()" value="Zamawiam">
+        <input *ngIf="isEmptyList == false" type="button" class="buttonOrder" (click)="validate()" value="Zamawiam">
         <div *ngIf="everythingOk == false" class="error">Wprowadź poprawnie dane</div>
         <div style = "clear: both;"></div>
     </div>

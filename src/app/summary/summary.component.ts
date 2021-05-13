@@ -26,9 +26,10 @@ export class SummaryComponent implements OnInit {
   shipping = "";
   everythingOk = true;
   ordered = false;
+  isEmptyList = true;
   user = {
-    name : "",
-    orderId : 0
+    name: "",
+    orderId: 0
   };
   personData = {
     fName: "",
@@ -47,9 +48,9 @@ export class SummaryComponent implements OnInit {
     this.user.orderId = user.orderId;
 
 
-    
+
     if (user != null) {
-      
+
       this.dataService.getOrderById(user.orderId).subscribe((data: any) => {
 
         data.forEach(element => {
@@ -59,10 +60,13 @@ export class SummaryComponent implements OnInit {
             itemData.cenaLacznie = element.iloscElementow * itemData.cena;
             this.totalToPaid += itemData.cenaLacznie;
             this.items.push(itemData);
-
+            this.isEmptyList = false;
           });
+          
         })
-      })
+
+      });
+ 
     }
     else {
 
@@ -94,48 +98,50 @@ export class SummaryComponent implements OnInit {
     else
       this.everythingOk = true;
 
-      
+
     if (this.everythingOk)
       this.order();
   }
 
   order() {
-    
+
     this.ordered = true;
     this.addShippingToBill();
-    this.dataService.deleteOrder(this.user.orderId);
 
-    //tu jakieś wysyłanie maili itp
+    this.dataService.deleteOrder(this.user.orderId).subscribe(retData => {
+    },
+      error => {
+      });
+
 
   }
 
-
-  generatePDF(){
+  generatePDF() {
     let pdf = new PdfGenerator();
     pdf.generate(this.items, this.personData, this.totalToPaid);
   }
 
   addShippingToBill() {
     let cost = 0;
-    switch(this.shipping) { 
-      case "gls": { 
-         cost = 15;
-         break; 
-      } 
-      case "poczta": { 
+    switch (this.shipping) {
+      case "gls": {
+        cost = 15;
+        break;
+      }
+      case "poczta": {
         cost = 20;
-         break; 
-      } 
-      case "dpd": { 
-        cost = 18; 
-         break; 
-      } 
+        break;
+      }
+      case "dpd": {
+        cost = 18;
+        break;
+      }
     }
 
     let shipping = {
       nazwa: "Przesyłka: " + this.shipping,
       cena: cost,
-      iloscElementow : 1,
+      iloscElementow: 1,
       cenaLacznie: cost
     };
     this.totalToPaid += cost;

@@ -56,6 +56,7 @@ export class DataDownloaderService {
     return this.http.delete(this.url + "/kartaProduktow/"+ id);
   }
   deleteOrder(orderId) {
+
     return this.http.delete(this.url + "/kartaProduktow/deleteProdukty/"+ orderId); 
   }
   
