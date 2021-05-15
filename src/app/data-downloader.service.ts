@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class DataDownloaderService {
 
-  private url = "https://nwta.azurewebsites.net"; //na azure
+  private url = "https://nwtaspring.azurewebsites.net"; //na azure
 
   data = [];
 
