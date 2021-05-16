@@ -21,7 +21,7 @@ steps:
   displayName: 'npm install and build' 
   
 - script: | 
-    npm install -g @angular/cli
+    npm install -g @angular/cli@12.14
   displayName: 'install angular cli' 
 
 - script: | 
