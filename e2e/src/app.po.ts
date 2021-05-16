@@ -32,7 +32,7 @@ export class AppPage {
   }
 
   navigateToCategory1() {
-    return browser.get('/category/1');
+    return browser.get('shop/category/1');
   }
   openProduct() {
     return element(by.css('body > app-root > div.content > app-shop > div.shop > div##mainSide > a:nth-child(2)'))
@@ -86,6 +86,10 @@ export class AppPage {
     return element.all(by.css('body > app-root > div.sidebar > #mobile-part-two > a'));
   }
 
+  getSecondItemInCategory(){
+    return element(by.css('#mainSide > a:nth-child(3)'));
+  }
+
   navigateToItem1() {
     return browser.get('/item/0');
   }
@@ -117,6 +121,28 @@ export class AppPage {
   }
 
   addToChart(){
-    return element(by.css('body > app-root > div.content > app-item > div.item-mobile > div.buy > input[type=button]:nth-child(3)'));
+    return element(by.css('body > app-root > div.content > app-item > div.item > div.buy > input[type=button]:nth-child(3)'));
   } 
+  getOrderButton(){
+    return element(by.css('#orderbutton > input'));
+  } 
+  getOrderButton2(){
+    return element(by.css('body > app-root > div.content > app-summary > div > div:nth-child(3) > input'));
+  } 
+  getOrderErrorMessage(){
+    return element(by.css('body > app-root > div.content > app-summary > div > div:nth-child(3) > div.error'));
+  }
+  getOrderPersonalData(){
+    return element(by.css('body > app-root > div.content > app-summary > div > div.personalData'));
+  }
+
+  inputText(input, text){
+    return element(by.css(input)).sendKeys(text);
+  }
+  getSecondShipment(){
+    return element(by.css('body > app-root > div.content > app-summary > div > div.shippingMethod > label:nth-child(4) > input'));
+  }
+  getOrderSummaryUserLogin(){
+    return element(by.css('body > app-root > div.content > app-summary > div > span'));
+  }
 }

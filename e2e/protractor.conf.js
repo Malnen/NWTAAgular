@@ -14,7 +14,7 @@ exports.config = {
   ],
   capabilities: {
     browserName: 'chrome',
-    args: ['--disable-gpu', '--no-sandbox','--headless', '--disable-extensions', '--disable-dev-shm-usage'],
+    args: ['--disable-gpu', '--no-sandbox', '--disable-extensions', '--disable-dev-shm-usage'],
     acceptInsecureCerts : true
   },
   directConnect: true,
