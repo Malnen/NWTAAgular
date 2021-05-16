@@ -7,7 +7,7 @@ describe('workspace-project App', () => {
   beforeEach(() => {
     page = new AppPage();
   });
-  /*
+  
     it('should check correctness of data validation for email during registration - domain without dot', async () => {
       await page.navigateToRegister();
       await page.getLoginInputInRegistration().sendKeys("user123");
@@ -169,7 +169,7 @@ describe('workspace-project App', () => {
     });
   
   
-  */
+  
   /////////////////////////////////////////////////////////////////////////////////////////////
   /*
     it('should register, login and check basic user activities', async () => {
