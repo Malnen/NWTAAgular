@@ -123,7 +123,7 @@ describe('workspace-project App', () => {
       await page.sleep(3000);
     });
   
-    it('check if correct number of products were added to chart', async () => {
+   /* it('check if correct number of products were added to chart', async () => {
       // login out
       await page.navigateTo();
       await page.getLoginScreenButton().click();
@@ -157,7 +157,7 @@ describe('workspace-project App', () => {
       expect(value).toBe('5')
   
     });
-  
+  */
     it('should check uniqueness two random product descriptions', async () => {
       await page.navigateToItem1();
       var desc1 = await page.getDescription().getText();
