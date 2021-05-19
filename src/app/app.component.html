@@ -16,6 +16,7 @@
     <a (click)="loginLogout()" [innerHTML]="loginButtonText" class="buttonRouter" style="cursor:pointer;"></a>
     <a routerLink="/order" routerLinkActive="active" class="buttonRouter">Koszyk</a>
     <a routerLink="/info" routerLinkActive="active" class="buttonRouter">O nas</a>
+    <a routerLink="/admin" routerLinkActive="active" class="buttonRouter" *ngIf="userIsAdmin">Panel administracyjny</a>
     <a routerLink="/shop" routerLinkActive="active" class="buttonRouter">Strona główna</a>
     <div style="clear: both;"></div>
   </div>

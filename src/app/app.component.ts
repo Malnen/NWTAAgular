@@ -19,10 +19,16 @@ export class AppComponent implements OnInit {
   user = new User();
   loginButtonText = "Zaloguj";
   logged = false;
+  userIsAdmin = false;
 
   constructor(private dataService: DataDownloaderService, public router: Router, @Inject(DOCUMENT) private _document: Document) { }
 
   ngOnInit(): void {
+    this.loggedInSession();
+
+  }
+
+  loggedInSession(){
     this.dataService.getCategories().subscribe((data: any) => {
       this.fillCategoryName(data);
     })
@@ -32,6 +38,8 @@ export class AppComponent implements OnInit {
         this.user = sessionUser;
         //console.log(sessionUser);
         this.logged = true;
+        if(this.user.role == 'admin')
+          this.userIsAdmin = true;
       }
       if (this.user.login != null)
         this.loginButtonText = "Wyloguj";
@@ -41,11 +49,7 @@ export class AppComponent implements OnInit {
     }
     if (this.user.awatar == "")
       this.user.awatar = "../assets/images/profil.jpg";
-
   }
-
-
-
   fillCategoryName(data: any[]) {
     data.forEach(element => {
 

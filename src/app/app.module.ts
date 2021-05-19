@@ -14,6 +14,8 @@ import { RegisterComponent } from './register/register.component';
 import { DatePipe } from '@angular/common';
 import { SummaryComponent } from './summary/summary.component';
 import { FormsModule } from '@angular/forms';
+import { AdminPanelComponent } from './admin-panel/admin-panel.component';
+import { AddItemComponent } from './admin-panel/add-item/add-item.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { FormsModule } from '@angular/forms';
     ShopComponent,
     ItemComponent,
     RegisterComponent,
-    SummaryComponent
+    SummaryComponent,
+    AdminPanelComponent,
+    AddItemComponent
   ],
   imports: [
     BrowserModule,

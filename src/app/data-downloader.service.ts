@@ -26,6 +26,9 @@ export class DataDownloaderService {
   getItemById(id: number) {
     return this.http.get(this.url + "/produkt/" + id);
   }
+  postItem(data) {
+    return this.http.post<any>(this.url + "/produkt/add", data);
+  }
   getOrderById(id: number) {
     return this.http.get(this.url + "/kartaProduktow/" + id);
   }

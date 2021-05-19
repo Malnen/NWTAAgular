@@ -3,6 +3,7 @@ export class User {
     haslo: string;
     email: string;
     awatar: string;
+    role: string;
     orderId: number;
 
     User(){
