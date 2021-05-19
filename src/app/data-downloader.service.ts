@@ -62,5 +62,14 @@ export class DataDownloaderService {
 
     return this.http.delete(this.url + "/kartaProduktow/deleteProdukty/"+ orderId); 
   }
+  importTable(name, file){
+    /*const endpoint = 'your-destination-url';
+    const formData: FormData = new FormData();
+    formData.append('fileKey', file, file.name);
+    return this.http
+      .post(this.url + "/import/" + name, formData)
+*/
+    return this.http.post<any>(this.url + "/import/" + name, file);
+  }
   
 }

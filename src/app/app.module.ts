@@ -16,6 +16,7 @@ import { SummaryComponent } from './summary/summary.component';
 import { FormsModule } from '@angular/forms';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { AddItemComponent } from './admin-panel/add-item/add-item.component';
+import { ImportDataComponent } from './admin-panel/import-data/import-data.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { AddItemComponent } from './admin-panel/add-item/add-item.component';
     RegisterComponent,
     SummaryComponent,
     AdminPanelComponent,
-    AddItemComponent
+    AddItemComponent,
+    ImportDataComponent
   ],
   imports: [
     BrowserModule,
