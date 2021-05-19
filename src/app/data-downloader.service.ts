@@ -34,7 +34,7 @@ export class DataDownloaderService {
   }
   getOrderId(login: string) {
     return this.http.get(this.url + "/koszyk/" + login);
-  }  
+  }
   login(login: string) {
     return this.http.get(this.url + "/konto/" + login);
   }
@@ -42,34 +42,30 @@ export class DataDownloaderService {
     const body = data;
     return this.http.post<any>(this.url + "/konto/add", body);
   }
-  addItemToOrder(data){
+  addItemToOrder(data) {
     const body = data;
     return this.http.post<any>(this.url + "/kartaProduktow/add", body);
 
   }
-  addOrderId(data){
+  addOrderId(data) {
     let tmp = {
-      kontoLoginKonta:data
+      kontoLoginKonta: data
     }
     console.log(tmp);
     return this.http.post<any>(this.url + "/koszyk/add", tmp);
   }
-  deleteFromOrder(id){
+  deleteFromOrder(id) {
 
-    return this.http.delete(this.url + "/kartaProduktow/"+ id);
+    return this.http.delete(this.url + "/kartaProduktow/" + id);
   }
   deleteOrder(orderId) {
 
-    return this.http.delete(this.url + "/kartaProduktow/deleteProdukty/"+ orderId); 
+    return this.http.delete(this.url + "/kartaProduktow/deleteProdukty/" + orderId);
   }
-  importTable(name, file){
-    /*const endpoint = 'your-destination-url';
+  importTable(name, file) {
     const formData: FormData = new FormData();
-    formData.append('fileKey', file, file.name);
-    return this.http
-      .post(this.url + "/import/" + name, formData)
-*/
-    return this.http.post<any>(this.url + "/import/" + name, file);
+    formData.append('file', file, file.name);
+    return this.http.post<any>(this.url + "/import/" + name, formData);
   }
-  
+
 }

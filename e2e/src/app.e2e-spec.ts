@@ -342,7 +342,7 @@ describe('workspace-project App', () => {
     await page.navigateToOrder();
     await page.sleep(2000);
     await page.getOrderButton().click()
-    await page.sleep(2000);
+    await page.sleep(5000);
     expect(await page.getOrderButton2().isPresent()).toBeFalsy();
   });
 
