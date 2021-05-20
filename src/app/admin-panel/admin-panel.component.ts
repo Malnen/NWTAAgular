@@ -22,6 +22,10 @@ export class AdminPanelComponent implements OnInit {
     this.checkIfAdmin();
     this.router.navigate(['/import-data']);
   }
+  exportRoute() {
+    this.checkIfAdmin();
+    this.router.navigate(['/export-data']);
+  }
 
   checkIfAdmin() {
     let sessionUser = JSON.parse(sessionStorage.getItem("loggedUser"));

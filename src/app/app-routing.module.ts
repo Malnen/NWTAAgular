@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AddItemComponent } from './admin-panel/add-item/add-item.component';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { ImportDataComponent } from './admin-panel/import-data/import-data.component';
+import { ExportDataComponent } from './admin-panel/export-data/export-data.component';
 import { InfoComponent } from './info/info.component';
 import { ItemComponent } from './item/item.component';
 import { LoginComponent } from './login/login.component';
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'admin', component: AdminPanelComponent },
   { path: 'add-item', component: AddItemComponent },
   { path: 'import-data', component: ImportDataComponent },
+  { path: 'export-data', component: ExportDataComponent },
   { path: 'shop/category/:categoryId', component: ShopComponent },
 ];
 

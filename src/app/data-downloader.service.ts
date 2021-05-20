@@ -67,5 +67,8 @@ export class DataDownloaderService {
     formData.append('file', file, file.name);
     return this.http.post<any>(this.url + "/import/" + name, formData);
   }
-
+  exportTable(name){
+    //console.log(this.url + "/" + name+ "/export");
+    return this.http.get(this.url + "/" + name+ "/export",  { responseType: 'blob' });
+  }
 }

@@ -17,6 +17,7 @@ import { FormsModule } from '@angular/forms';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { AddItemComponent } from './admin-panel/add-item/add-item.component';
 import { ImportDataComponent } from './admin-panel/import-data/import-data.component';
+import { ExportDataComponent } from './admin-panel/export-data/export-data.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ImportDataComponent } from './admin-panel/import-data/import-data.compo
     SummaryComponent,
     AdminPanelComponent,
     AddItemComponent,
-    ImportDataComponent
+    ImportDataComponent,
+    ExportDataComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,11 @@
+<div class="product">
+    <div class="productText">
+        Tabela
+    </div>
+    <tr>
+        <td>Nazwa: </td>
+        <td><input type="text" #nameInput></td>
+    </tr>  
+</div>
+<input type="button" (click)="download()" value="Pobierz">
+<div *ngIf="tableDoesntExist">Tabela nie istnieje!</div>
