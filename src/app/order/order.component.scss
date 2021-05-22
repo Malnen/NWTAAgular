@@ -69,6 +69,16 @@
     }
 }
 
+.empty{
+    margin-top: 10px;
+    background-color: rgb(47, 50, 58,0.7);
+    padding: 10px;
+    text-align: left;
+    letter-spacing: 2px;
+    color: red;
+    text-transform: uppercase;
+}
+
 @media only screen and (max-width: 500px) {
     .orderedItem{
         border: solid 1px black;

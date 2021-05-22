@@ -14,9 +14,12 @@
 
     </div>
 
-    <div *ngIf="items.length == 0">Koszyk pusty!</div>
 
-    <div id="orderbutton" *ngIf="loggedUser">
+    <div *ngIf="!loggedUser" class="empty">Zaloguj się, aby wyświetlić koszyk.</div>
+
+    <div *ngIf="loggedUser && items.length == 0" class="empty">Koszyk pusty!</div>
+
+    <div id="orderbutton" *ngIf="loggedUser && items.length != 0">
         <input type="button" [routerLink]="['/summary']" class="buttonX" value="Zamawiam">
     </div>
 
