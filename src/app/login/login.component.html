@@ -2,15 +2,15 @@
     <div class="rightSide">
         <form (submit)="login()" action="#">
             <div class="itemCateg">LOGIN</div>
-            <input #loginInput type="text" placeholder=''>
+            <input class="input" #loginInput type="text" placeholder=''>
             <div class="itemCateg">HASŁO</div>
-            <input #passInput type="password" placeholder=''>
+            <input class="input" #passInput type="password" placeholder=''>
             <div>
-                <button (click)="login()">Zaloguj</button>
-                <input type="submit" (click)="login()" id="loginBtn" value="Submit" />
+                <input type="submit" (click)="login()" id="loginBtn" value="Zaloguj"/>
                 <a routerLink="/register" routerLinkActive="active" class="buttonRouter">Załóż konto</a>
                 <div class="wrongData">Niepoprawne dane</div>
             </div>
         </form>
     </div>
+
 </div>
