@@ -13,9 +13,10 @@
   </div>
 
   <div class="right_area">
-    <a routerLink="/login" routerLinkActive="active" class="buttonRouter">Zaloguj</a>
+    <a (click)="loginLogout()" [innerHTML]="loginButtonText" class="buttonRouter" style="cursor:pointer;"></a>
     <a routerLink="/order" routerLinkActive="active" class="buttonRouter">Koszyk</a>
     <a routerLink="/info" routerLinkActive="active" class="buttonRouter">O nas</a>
+    <a routerLink="/admin" routerLinkActive="active" class="buttonRouter" *ngIf="userIsAdmin">Panel administracyjny</a>
     <a routerLink="/shop" routerLinkActive="active" class="buttonRouter">Strona główna</a>
     <div style="clear: both;"></div>
   </div>
@@ -27,12 +28,16 @@
 <div class="sidebar">
 
   <div class="login_feature">
-    <img src="../assets/images/profil.jpg" alt="zdjecie_profilowe" class="profile_image">
-    <h4>Nazwa użytk</h4>
+    <img src="{{user.awatar}}" alt="zdjecie_profilowe" class="profile_image" *ngIf="logged">
+    <h4>{{user.login}}</h4>
     <div class="mobile-clear"></div>
   </div>
 
   <div id="mobile-part-one">
+    <a routerLink="/admin" routerLinkActive="active" class="buttonRouter" *ngIf="userIsAdmin">
+      <i class="fas fa-wrench"></i>
+      <span>Panel administracyjny</span>
+    </a>
     <a routerLink="/info" routerLinkActive="active" class="buttonRouter">
       <i class="fas fa-question-circle"></i>
       <span>O nas</span>
@@ -41,9 +46,9 @@
       <i class="fas fa-shopping-basket"></i>
       <span>Koszyk</span>
     </a>
-    <a routerLink="/login" routerLinkActive="active" class="buttonRouter">
+    <a (click)="loginLogout()" routerLinkActive="active" class="buttonRouter">
       <i class="fas fa-sign-in-alt"></i>
-      <span>Zaloguj</span>
+      <span [innerHTML]="loginButtonText"></span>
     </a>    
   </div>
 
@@ -54,13 +59,25 @@
       <i class={{category.icon}}></i>   <!-- IKONA KATEGORII WG ID-->
 
       <span>
-        {{category.name}} {{category.id}}
+        {{category.name}}
       </span>
+
     </a>    
   </div>
 
 </div>
 
+<div class="tooltip">
+
+  
+
+</div>
+
 <div class="content">
   <router-outlet></router-outlet>
+</div>
+
+
+<div class="content2">
+
 </div>
