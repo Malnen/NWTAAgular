@@ -5,7 +5,7 @@ header{
             color: #fff;
             position: fixed;
             cursor: pointer;
-            left: 300px;
+           // left: 300px;
             font-size: 20px;
             margin: 3px 20px;
             transition: 0.5s;
@@ -14,6 +14,7 @@ header{
             color: #f25287;
         }
     }
+    z-index: 100;
     position: fixed;
     background: #22242A;
     padding: 20px;
@@ -53,6 +54,7 @@ header{
             font-weight: 600px;
             color: #fff;
             transition: 0.5s;
+            cursor: pointer;
         }
         .buttonRouter:hover{
             background: #ffaec0;
@@ -70,6 +72,13 @@ header{
     width: 250px;
     height: 100%;
     transition: 0.5s;
+    span{
+        font-size: 18px;
+        cursor: pointer;
+    }
+    i{
+        font-size: 26px;
+    }
     .buttonRouter{
         display: none;
     }
@@ -100,6 +109,9 @@ header{
             padding-right: 10px;
         }
     }
+    a:active{
+        color: red;;
+    }
     a:hover{
         background: #ffaec0;
     }
@@ -124,6 +136,12 @@ header{
     width: 80px;
 }
 
+.tooltip{
+    background: blue;
+    width: 30%;
+    height: 30%;
+}
+
 .content{
     margin-left: 250px;
     background-image: url("../app/images/background1.png");
@@ -143,7 +161,11 @@ header{
     display: none;
 }
 
-@media only screen and (max-width: 815px) {
+.content2{
+    display: none;
+}
+
+@media only screen and (max-width: 970px) {
     header{
         .right_area{
             .buttonRouter{
@@ -154,29 +176,28 @@ header{
     }
 }
 
-@media only screen and (max-width: 815px) {
+@media only screen and (max-width: 915px) {
     header{
         .right_area{
             .buttonRouter{
-                padding: 5px 8px 5px 8px;
+                padding: 5px 5px;
                 margin-right: 10px;
             }
         }
     }
 }
 
-@media only screen and (max-width: 720px) {
+@media only screen and (max-width: 850px) {
     header{
         .right_area{
             .buttonRouter{
-                padding: 5px;
-                margin-right: 8px;
+                padding: 5px 2px 5px 2px;
             }
         }
     }
 }
 
-@media only screen and (max-width: 680px) {
+@media only screen and (max-width: 800px) {
     .sidebar{
         .buttonRouter{
             display: block;
@@ -235,6 +256,22 @@ header{
         a:hover{
             color: #2F323A;
         }
+    }
+}
+@media only screen and (max-width: 400px) {
+    #check:not(:checked) ~ .content{
+        display: none;
+    }
+    #check:not(:checked) ~ .content2{
+        display: block;
+        margin-left: 250px;
+        background-image: url("../app/images/background1.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        height: 100vh;
+        transition: 0.5s;
+        padding-top: 70px;
     }
 }
 
