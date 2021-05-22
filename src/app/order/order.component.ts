@@ -10,16 +10,17 @@ import { DataDownloaderService } from '../data-downloader.service';
 export class OrderComponent implements OnInit {
 
   items = [];
-
+  loggedUser = false;
+  
   constructor(private dataService: DataDownloaderService,  @Inject(DOCUMENT) private _document: Document) {
     let user = JSON.parse(sessionStorage.getItem("loggedUser"));
     if (user != null) {
-
+      this.loggedUser = true;
       this.dataService.getOrderById(user.orderId).subscribe((data: any) => {
 
         data.forEach(element => {
           this.dataService.getItemById(element.produktIdProduktu).subscribe((itemData: any) => {
-            itemData.numerKoszyka = element.numerKoszyka;
+            itemData.numerKarty = element.numerKarty;
             itemData.iloscElementow = element.iloscElementow;
             this.items.push(itemData);
 
@@ -28,7 +29,7 @@ export class OrderComponent implements OnInit {
       })
     }
     else {
-
+      
     }
   }
 
@@ -37,6 +38,7 @@ export class OrderComponent implements OnInit {
 
   }
   deleteItem(id){
+
     this.dataService.deleteFromOrder(id).subscribe(retData => {
       //this._document.defaultView.location.reload();
     },

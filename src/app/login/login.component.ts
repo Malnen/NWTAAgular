@@ -15,6 +15,8 @@ export class LoginComponent implements OnInit {
   @ViewChild('passInput') passwordInput: ElementRef;
 
 
+
+
   constructor(private dataService: DataDownloaderService, public router: Router, @Inject(DOCUMENT) private _document: Document) { }
 
   ngOnInit(): void {

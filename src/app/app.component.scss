@@ -165,7 +165,7 @@ header{
     display: none;
 }
 
-@media only screen and (max-width: 815px) {
+@media only screen and (max-width: 970px) {
     header{
         .right_area{
             .buttonRouter{
@@ -176,29 +176,28 @@ header{
     }
 }
 
-@media only screen and (max-width: 815px) {
+@media only screen and (max-width: 915px) {
     header{
         .right_area{
             .buttonRouter{
-                padding: 5px 8px 5px 8px;
+                padding: 5px 5px;
                 margin-right: 10px;
             }
         }
     }
 }
 
-@media only screen and (max-width: 720px) {
+@media only screen and (max-width: 850px) {
     header{
         .right_area{
             .buttonRouter{
-                padding: 5px;
-                margin-right: 8px;
+                padding: 5px 2px 5px 2px;
             }
         }
     }
 }
 
-@media only screen and (max-width: 680px) {
+@media only screen and (max-width: 800px) {
     .sidebar{
         .buttonRouter{
             display: block;
@@ -292,4 +291,3 @@ header{
         }
     }
 }
-

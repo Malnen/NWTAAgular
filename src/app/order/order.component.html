@@ -9,12 +9,14 @@
 
         </a>
 
-        <i class="far fa-trash-alt" id="deleteItem" (click)="deleteItem(item.numerKoszyka)"></i>
+        <i class="far fa-trash-alt" id="deleteItem" (click)="deleteItem(item.numerKarty)"></i>
         <input type="number" id="numberOfItems" value="{{item.iloscElementow}}">
 
     </div>
 
-    <div id="orderbutton">
+    <div *ngIf="items.length == 0">Koszyk pusty!</div>
+
+    <div id="orderbutton" *ngIf="loggedUser">
         <input type="button" [routerLink]="['/summary']" class="buttonX" value="Zamawiam">
     </div>
 
