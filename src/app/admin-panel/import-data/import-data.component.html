@@ -1,16 +1,19 @@
-<div class="product">
-    <div class="productText">
-        Tabela
+<div class = "loginWindow">
+    <div class="rightSide">
+        <div class="product">
+
+            <div class="productText">Tabela</div>
+
+            <div class="itemCateg">NAZWA</div>
+            <input type="text" #nameInput>
+            
+            <div class="itemCateg">PLIK (CSV)</div>
+            <input type="file" (change)="handleFileInput($event.target.files)" accept=".csv" #fileInput>
+
+            <div>
+                <input type="button" (click)="validate()" value="Zaimportuj" class = "button">
+                <div *ngIf="done">Bum!</div>
+            </div>
+        </div>
     </div>
-    <tr>
-        <td>Nazwa: </td>
-        <td><input type="text" #nameInput></td>
-    </tr>
-    <tr>
-        <td>Plik (csv): </td>
-        <td><input type="file" (change)="handleFileInput($event.target.files)" accept=".csv" #fileInput></td>
-    </tr>
-    
 </div>
-<input type="button" (click)="validate()" value="Zaimportuj">
-<div *ngIf="done">Bum!</div>

@@ -1,32 +1,32 @@
-<div class="product">
-    <div class="productText">
-        Produkt
-    </div>
-    <tr>
-        <td>Nazwa: </td>
-        <td><input type="text" #nameInput></td>
-    </tr>
-    <tr>
-        <td>Opis: </td>
-        <td><input type="text" #descriptionInput></td>
-    </tr>
-    <tr>
-        <td>Cena: </td>
-        <td><input type="text" #costInput></td>
-    </tr>
-    <tr>
-        <td>Zdjęcie: </td>
-        <td><input type="text" #photoInput></td>
-    </tr>
-    <tr>
-        <td>Dział: </td>
-        <td>
-            <select [(ngModel)]="choosenCategory">
-                <option *ngFor="let category of categories" [value]="category.numerDzialu">{{category.numerDzialu}}# {{category.nazwa}}</option>
-            </select>
-        </td>
-    </tr>
+<div class = "loginWindow">
+    <div class="rightSide">
+        <div class="product">
+            <div class="productText">Produkt</div>
 
+            <div class="itemCateg">NAZWA</div>
+            <input type="text" #nameInput>
+
+            <div class="itemCateg">OPIS</div>
+            <input type="text" #descriptionInput>
+
+            <div class="itemCateg">CENA</div>
+            <input type="text" #costInput>
+
+            <div class="itemCateg">ZDJĘCIE</div>
+            <input type="text" #photoInput>
+
+            <div class="itemCateg">DZIAŁ</div>
+            <select [(ngModel)]="choosenCategory">
+                <option *ngFor="let category of categories" [value]="category.numerDzialu">
+                    {{category.numerDzialu}}# {{category.nazwa}}
+                </option>
+            </select>
+
+            <div>
+                <input type="button" (click)="validate()" value="Dodaj produkt" class = "button">
+                <div *ngIf="done">Dodano</div>
+            </div>
+
+        </div>
+    </div>
 </div>
-<input type="button" (click)="validate()" value="Dodaj produkt">
-<div *ngIf="done">Dodano</div>

@@ -1,11 +1,15 @@
-<div class="product">
-    <div class="productText">
-        Tabela
+<div class = "loginWindow">
+    <div class="rightSide">
+        <div class="product">
+            <div class="productText">Tabela</div>
+
+            <div class="itemCateg">NAZWA</div>
+            <input type="text" #nameInput>
+
+            <div>
+                <input type="button" (click)="download()" value="Pobierz" class="button">
+                <div *ngIf="tableDoesntExist">Tabela nie istnieje!</div>
+            </div>
+        </div>
     </div>
-    <tr>
-        <td>Nazwa: </td>
-        <td><input type="text" #nameInput></td>
-    </tr>  
 </div>
-<input type="button" (click)="download()" value="Pobierz">
-<div *ngIf="tableDoesntExist">Tabela nie istnieje!</div>
