@@ -21,8 +21,8 @@
 
     <div class="buy">
         <div class="price">Cena za sztukę {{item.cena}}zł</div>
-        <input type="number" min="1" value="1" #itemNumberInput>
-        <input type="button" value="Dodaj do koszyka" (click)="addToOrder()">
+        <input type="number" *ngIf="loggedUser" min="1" value="1" #itemNumberInput>
+        <input type="button" *ngIf="loggedUser" value="Dodaj do koszyka" (click)="addToOrder()">
     </div>
     <div class="clear"></div>
 </div>

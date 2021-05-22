@@ -16,9 +16,14 @@ export class ItemComponent implements OnInit {
   @ViewChild('itemNumberInput') itemsNumberInput: ElementRef;
   item = new Item();
   addedToOrder=false;
-
+  loggedUser = false;
 
   constructor(private route: ActivatedRoute, private dataService: DataDownloaderService, public datepipe: DatePipe) { 
+    let user = JSON.parse(sessionStorage.getItem("loggedUser"));
+    
+    if (user != null)
+      this.loggedUser = true;
+    
     const routeParams = this.route.snapshot.paramMap;
     let itemId = Number(routeParams.get('itemId')); 
 
