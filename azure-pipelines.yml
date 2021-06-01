@@ -26,6 +26,8 @@ steps:
 
 - script: | 
     npx webdriver-manager update
+    webdriver-manager clean
+    node node_modules/protractor/bin/webdriver-manager update --standalone --versions.standalone=3.8.0
   displayName: 'install webdriver manager' 
 
 - script: |
