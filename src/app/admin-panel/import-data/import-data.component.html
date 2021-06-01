@@ -5,7 +5,12 @@
             <div class="productText">Tabela</div>
 
             <div class="itemCateg">NAZWA</div>
-            <input type="text" #nameInput>
+            <select name="tables" #select>
+                <option *ngFor="let table of tables" value="{{table.key}}">
+                    {{table.name}}
+                </option>
+            </select>
+            <!--<input type="text" #nameInput>-->
             
             <div class="itemCateg">PLIK (CSV)</div>
             <input type="file" (change)="handleFileInput($event.target.files)" accept=".csv" #fileInput>

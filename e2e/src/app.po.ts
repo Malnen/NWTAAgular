@@ -1,4 +1,4 @@
-import { browser, by, element } from 'protractor';
+import { browser, by, element, protractor } from 'protractor';
 
 export class AppPage {
   navigateTo() {
@@ -12,13 +12,13 @@ export class AppPage {
     return element(by.css('body > app-root > header > div.right_area > a:nth-child(1)'))
   }
   getLoginInput() {
-    return element(by.css('body > app-root > div.content > app-login > div > div > input[type=text]:nth-child(2)'))
+    return element(by.css('body > app-root > div.content > app-login > div > div > form > input:nth-child(2)'))
   }
   getPasswordInput() {
-    return element(by.css('body > app-root > div.content > app-login > div > div > input[type=password]:nth-child(4)'))
+    return element(by.css('body > app-root > div.content > app-login > div > div > form > input:nth-child(4)'))
   }
   getLoginButton() {
-    return element(by.css('body > app-root > div.content > app-login > div > div > div:nth-child(5) > button'))
+    return element(by.css('body > app-root > div.content > app-login > div > div > form > div:nth-child(5) > input'))
   }
   getUserName() {
     return element(by.css('body > app-root > div.sidebar > div.login_feature > h4'))
@@ -46,6 +46,9 @@ export class AppPage {
   navigateToOrder() {
     return browser.get('/order');
   }
+  navigeteToItem(id) {
+    return browser.get('/item/' + id);
+  }
   getProducts() {
     return element.all(by.css('body > app-root > div.content > app-order > div > div'));
   }
@@ -53,7 +56,11 @@ export class AppPage {
     return element(by.css('body > app-root > div.content > app-order > div > div > a'));
   }
   getChartButton(i) {
-    return element(by.css('body > app-root > div.content > app-login > div > div > div:nth-child(i) > button'))
+    return element(by.css('body > app-root > div.content > app-login > div > div  > form > div:nth-child(' + (i + 2) + ') > button'))
+  }
+
+  clearInputOfElement(selector){
+    return element(by.css(selector)).sendKeys(protractor.Key.BACK_SPACE)
   }
 
   getTextOfElement(selector) {
@@ -66,6 +73,10 @@ export class AppPage {
       return value
     });
   }
+  getAddItemToChartButton() {
+    return element(by.css('body > app-root > div.content > app-item > div.item > div.buy > input[type=button]:nth-child(3)'));
+  }
+
   removeItem(i) {
     return element(by.css('body > app-root > div.content > app-order > div > div:nth-child(' + i + ') > i'));
   }
@@ -76,7 +87,7 @@ export class AppPage {
     return element(by.css('body > app-root > header > div.right_area > a:nth-child(1)'));
   }
   getErrorMessage() {
-    return element(by.css('body > app-root > div.content > app-login > div > div > div:nth-child(5) > div'));
+    return element(by.css('body > app-root > div.content > app-login > div > div > form > div:nth-child(5) > div.wrongData'));
   }
 
   getMobileOptions1() {
@@ -86,7 +97,7 @@ export class AppPage {
     return element.all(by.css('body > app-root > div.sidebar > #mobile-part-two > a'));
   }
 
-  getSecondItemInCategory(){
+  getSecondItemInCategory() {
     return element(by.css('#mainSide > a:nth-child(3)'));
   }
 
@@ -96,11 +107,11 @@ export class AppPage {
   navigateToItem2() {
     return browser.get('/item/1');
   }
-  getDescription(){
+  getDescription() {
     return element(by.css('body > app-root > div.content > app-item > div.item > div.description > span'));
   }
 
-  navigateToRegister(){
+  navigateToRegister() {
     return browser.get('/register');
   }
 
@@ -120,29 +131,30 @@ export class AppPage {
     return element(by.css('body > app-root > div.content > app-register > div > div.error'))
   }
 
-  addToChart(){
+  addToChart() {
     return element(by.css('body > app-root > div.content > app-item > div.item > div.buy > input[type=button]:nth-child(3)'));
-  } 
-  getOrderButton(){
+  }
+  getOrderButton() {
     return element(by.css('#orderbutton > input'));
-  } 
-  getOrderButton2(){
+  }
+  getOrderButton2() {
     return element(by.css('body > app-root > div.content > app-summary > div > div:nth-child(3) > input'));
-  } 
-  getOrderErrorMessage(){
+  }
+  getOrderErrorMessage() {
     return element(by.css('body > app-root > div.content > app-summary > div > div:nth-child(3) > div.error'));
   }
-  getOrderPersonalData(){
+  getOrderPersonalData() {
     return element(by.css('body > app-root > div.content > app-summary > div > div.personalData'));
   }
 
-  inputText(input, text){
+
+  inputText(input, text) {
     return element(by.css(input)).sendKeys(text);
   }
-  getSecondShipment(){
+  getSecondShipment() {
     return element(by.css('body > app-root > div.content > app-summary > div > div.shippingMethod > label:nth-child(4) > input'));
   }
-  getOrderSummaryUserLogin(){
+  getOrderSummaryUserLogin() {
     return element(by.css('body > app-root > div.content > app-summary > div > span'));
   }
 }

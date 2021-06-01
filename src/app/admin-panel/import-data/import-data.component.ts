@@ -9,23 +9,24 @@ import { DataDownloaderService } from 'src/app/data-downloader.service';
 })
 export class ImportDataComponent implements OnInit {
 
-  @ViewChild('nameInput') nameInput: ElementRef;
+  @ViewChild('select') select: ElementRef;
   @ViewChild('fileInput') fileInput: ElementRef;
 
   done = false;
   file: File;
-
+  tables = []
   constructor(public router: Router, private dataService: DataDownloaderService) { }
 
   ngOnInit(): void {
     this.checkIfAdmin();
+    this.tables = this.dataService.getTables()
 
   }
 
   validate() {
     this.checkIfAdmin();
 
-    let name = this.nameInput.nativeElement.value;
+    let name = this.select.nativeElement.value;
     //let file: File = this.fileInput.nativeElement.files;
 
     this.dataService.importTable(name, this.file).subscribe((data: any) => {

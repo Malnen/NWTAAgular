@@ -4,7 +4,13 @@
             <div class="productText">Tabela</div>
 
             <div class="itemCateg">NAZWA</div>
-            <input type="text" #nameInput>
+            
+            <select name="tables" #select>
+                <option *ngFor="let table of tables" value="{{table.key}}">
+                    {{table.name}}
+                </option>
+            </select>
+            <!--<input type="text" #nameInput>-->
 
             <div>
                 <input type="button" (click)="download()" value="Pobierz" class="button">

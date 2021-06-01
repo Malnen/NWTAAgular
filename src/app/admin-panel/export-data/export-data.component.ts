@@ -9,19 +9,21 @@ import { DataDownloaderService } from 'src/app/data-downloader.service';
 })
 export class ExportDataComponent implements OnInit {
 
-  @ViewChild('nameInput') nameInput: ElementRef;
+  @ViewChild('select') select: ElementRef;
   tableDoesntExist = false;
+  tables = []
 
   constructor(public router: Router, private dataService: DataDownloaderService) { }
 
   ngOnInit(): void {
     this.checkIfAdmin();
+    this.tables = this.dataService.getTables()
   }
 
   download() {
     this.checkIfAdmin();
 
-    let name = this.nameInput.nativeElement.value;
+    let name = this.select.nativeElement.value;
     this.dataService.exportTable(name).subscribe((data: any) => {
 
       let blob = new Blob([data], { type: '.csv' });

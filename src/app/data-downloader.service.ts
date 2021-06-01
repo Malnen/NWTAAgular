@@ -10,9 +10,46 @@ export class DataDownloaderService {
   private url = "https://nwtaspring.azurewebsites.net"; //na azure
 
   data = [];
-
+  tables = [
+    {
+      key: "dzial",
+      name: "Dzial"
+    },
+    {
+      key: "kartaProduktow",
+      name: "Karta Produktów"
+    },
+    {
+      key: "klient",
+      name: "Klient"
+    },
+    {
+      key: "konto",
+      name: "Konto"
+    },
+    {
+      key: "koszyk",
+      name: "Koszyk"
+    },
+    {
+      key: "produkt",
+      name: "Produkt"
+    }, 
+    {
+      key: "transakcja",
+      name: "Transakcja"
+    }, 
+    {
+      key: "zoologicznypunktsprzedazy",
+      name: "Zoologiczny Punkt Sprzedaży"
+    }
+  ]
 
   constructor(private http: HttpClient) { }
+
+  getTables() {
+    return this.tables
+  }
 
   getCategories() {
     return this.http.get(this.url + "/dzial/all");
@@ -67,8 +104,8 @@ export class DataDownloaderService {
     formData.append('file', file, file.name);
     return this.http.post<any>(this.url + "/import/" + name, formData);
   }
-  exportTable(name){
+  exportTable(name) {
     //console.log(this.url + "/" + name+ "/export");
-    return this.http.get(this.url + "/" + name+ "/export",  { responseType: 'blob' });
+    return this.http.get(this.url + "/" + name + "/export", { responseType: 'blob' });
   }
 }
