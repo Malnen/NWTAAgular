@@ -28,6 +28,9 @@ steps:
     npx webdriver-manager update --versions.chrome 85.0.4183.87
   displayName: 'install webdriver manager' 
 
+- script: |
+    ng e2e --webdriver-update=false
+  displayName: 'run tests' 
 - task: Docker@2
   inputs:
     containerRegistry: 'nwtaJamgroup'
