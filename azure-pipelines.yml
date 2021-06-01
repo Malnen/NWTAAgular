@@ -29,7 +29,7 @@ steps:
   displayName: 'install webdriver manager' 
 
 - script: |
-    ng e2e --webdriver-update=false
+    ng e2e 
   displayName: 'run tests' 
 - task: Docker@2
   inputs:
