@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  vmImage: windows-latest
+  vmImage: ubuntu-latest
 
 steps:
 - task: NodeTool@0
@@ -28,9 +28,6 @@ steps:
     npx webdriver-manager update 
   displayName: 'install webdriver manager' 
 
-- script: |
-    ng e2e --webdriver-update=false
-  displayName: 'run tests' 
 - task: Docker@2
   inputs:
     containerRegistry: 'nwtaJamgroup'
