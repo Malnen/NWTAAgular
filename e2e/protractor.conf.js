@@ -14,8 +14,8 @@ exports.config = {
   ],
   capabilities: {
     browserName: 'chrome',
-    args: ['--disable-gpu', '--no-sandbox', '--disable-extensions', '--disable-dev-shm-usage'],
-    acceptInsecureCerts : true
+    args: ['--disable-gpu', '--headless', '--no-sandbox', '--disable-extensions', '--disable-dev-shm-usage'],
+    acceptInsecureCerts: true
   },
   directConnect: true,
   SELENIUM_PROMISE_MANAGER: false,
@@ -24,7 +24,7 @@ exports.config = {
   jasmineNodeOpts: {
     showColors: true,
     defaultTimeoutInterval: 30000,
-    print: function() {}
+    print: function () { }
   },
   onPrepare() {
     require('ts-node').register({
