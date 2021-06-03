@@ -25,9 +25,6 @@ steps:
   displayName: 'install angular cli' 
 
 
-- script: |
-    xvfb-run -a -s "-screen 0 2920x2580x24" ng e2e
-  displayName: 'run tests' 
 - task: Docker@2
   inputs:
     containerRegistry: 'nwtaJamgroup'
