@@ -14,6 +14,9 @@ exports.config = {
   ],
   capabilities: {
     browserName: 'chrome',
+    chromeOptions: {
+      args: ['--window-size=1920,1280']
+    },
     args: ['--disable-gpu', '--headless', '--no-sandbox', '--disable-extensions', '--disable-dev-shm-usage'],
     acceptInsecureCerts: true
   },
