@@ -32,7 +32,7 @@ steps:
   displayName: 'install webdriver manager' 
 
 - script: |
-    xvfb-run -a -e /dev/stdout -s "-screen 0 2920x2580x24" ng e2e
+    xvfb-run -a -s "-screen 0 2920x2580x24" ng e2e
   displayName: 'run tests' 
 - task: Docker@2
   inputs:
