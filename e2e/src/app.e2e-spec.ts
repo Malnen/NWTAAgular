@@ -149,7 +149,7 @@ describe('workspace-project App', () => {
     await page.sleep(3000);
     await page.navigateToOrder();
 
-    await page.sleep(3000);
+    await page.sleep(8000);
 
     var parents = await page.getProducts();
 
