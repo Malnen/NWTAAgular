@@ -26,12 +26,13 @@ steps:
 
 - script: | 
     node node_modules/protractor/bin/webdriver-manager update --standalone
-    sudo apt-get -qq -y update
-    sudo apt-get -qq -y install xvfb libgtk2.0-0 libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2
+    sudo apt-get install -y xvfb
+    sudo apt-get install -y  xfonts-100dpi xfonts-75dpi xfonts-cyrillic  dbus-x11
+
   displayName: 'install webdriver manager' 
 
 - script: |
-    ng e2e 
+    xvfb-run -a -s "-screen 0 2920x2580x24" ng e2e
   displayName: 'run tests' 
 - task: Docker@2
   inputs:
