@@ -24,12 +24,6 @@ steps:
     npm install -g @angular/cli@12.0.0
   displayName: 'install angular cli' 
 
-- script: | 
-    node node_modules/protractor/bin/webdriver-manager update --standalone
-    sudo apt-get install -y xvfb
-    sudo apt-get install -y  xfonts-100dpi xfonts-75dpi xfonts-cyrillic  dbus-x11
-
-  displayName: 'install other things' 
 
 - script: |
     xvfb-run -a -s "-screen 0 2920x2580x24" ng e2e
