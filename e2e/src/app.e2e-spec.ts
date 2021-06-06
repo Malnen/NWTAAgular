@@ -6,7 +6,7 @@ describe('workspace-project App', () => {
 
   beforeEach(() => {
     page = new AppPage();
-  });/*
+  });
   
      it('should check correctness of data validation for email during registration - domain without dot', async () => {
        await page.navigateToRegister();
@@ -181,7 +181,7 @@ describe('workspace-project App', () => {
 
     expect(desc1 != desc2);
   });
-*/
+
 
   async function login() {
     await page.navigateTo();
@@ -196,7 +196,7 @@ describe('workspace-project App', () => {
 
     await page.sleep(3000);
   }
-/*
+
   it('should place an order - empty inputs', async () => {
     await login()
     await page.sleep(2000);
@@ -255,7 +255,7 @@ describe('workspace-project App', () => {
     }
     expect(isPresent).toBeFalsy();
   });
-*/  
+
 
 it('check if admin panel loads correctly', async () => {
   await login()
