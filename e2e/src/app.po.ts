@@ -27,6 +27,23 @@ export class AppPage {
   navigateToAboutMe() {
     return browser.get('/info');
   }
+  navigateToAdminPanel() {
+    return browser.get('/admin');
+  }
+  navigateToAddItemPanel() {
+    return browser.get('/add-item');
+  }
+  navigateToExportPanel() {
+    return browser.get('/export-data');
+  }
+  navigateToImportPanel() {
+    return browser.get('/import-data');
+  }
+
+  getElementCount(selector){
+    return element.all(by.css(selector)).count();
+  }
+
   getCategoryText() {
     return element(by.css('body > app-root > div.content > app-info > div.choosenCategory'));
   }

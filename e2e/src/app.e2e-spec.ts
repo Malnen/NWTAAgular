@@ -6,7 +6,7 @@ describe('workspace-project App', () => {
 
   beforeEach(() => {
     page = new AppPage();
-  });
+  });/*
   
      it('should check correctness of data validation for email during registration - domain without dot', async () => {
        await page.navigateToRegister();
@@ -181,7 +181,7 @@ describe('workspace-project App', () => {
 
     expect(desc1 != desc2);
   });
-
+*/
 
   async function login() {
     await page.navigateTo();
@@ -196,7 +196,7 @@ describe('workspace-project App', () => {
 
     await page.sleep(3000);
   }
-
+/*
   it('should place an order - empty inputs', async () => {
     await login()
     await page.sleep(2000);
@@ -255,6 +255,41 @@ describe('workspace-project App', () => {
     }
     expect(isPresent).toBeFalsy();
   });
+*/  
+
+it('check if admin panel loads correctly', async () => {
+  await login()
+  await page.sleep(2000);
+  await page.navigateToAdminPanel();
+  expect(await page.getElementCount('body > app-root > div.content > app-admin-panel > div > div > div > input')).toBe(3);
+});
+
+it('check if add item panel loads correctly', async () => {
+  await login()
+  await page.sleep(2000);
+  await page.navigateToAddItemPanel();
+  expect(await page.getElementCount('body > app-root > div.content > app-add-item > div > div > div > div')).toBe(7);
+  expect(await page.getElementCount('body > app-root > div.content > app-add-item > div > div > div > input')).toBe(4);
+  expect(await page.getElementCount('body > app-root > div.content > app-add-item > div > div > div > select')).toBe(1);
+  expect(await page.getElementCount('body > app-root > div.content > app-add-item > div > div > div > select > option')).toBe(4);
+});
+
+it('check if import panel loads correctly', async () => {
+  await login()
+  await page.sleep(2000);
+  await page.navigateToImportPanel();
+  expect(await page.getElementCount('body > app-root > div.content > app-import-data > div > div > div > select')).toBe(1);
+  expect(await page.getElementCount('body > app-root > div.content > app-import-data > div > div > div > select > option')).toBe(8);
+});
+
+it('check if export panel loads correctly', async () => {
+  await login()
+  await page.sleep(2000);
+  await page.navigateToExportPanel();
+  expect(await page.getElementCount('body > app-root > div.content > app-export-data > div > div > div > select')).toBe(1);
+  expect(await page.getElementCount('body > app-root > div.content > app-export-data > div > div > div > select > option')).toBe(8);
+});
+
 
   afterEach(async () => {
     // Assert that there are no errors emitted from the browser
